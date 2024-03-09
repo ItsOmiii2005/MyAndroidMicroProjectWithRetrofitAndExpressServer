@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">VAPM ID Card Maker</string>
+    <string name="e_g_omanand_prashant_swami">e.g. Omanand Prashant Swami</string>
+    <string name="welcome_to_vapm_n_id_card_builder_app">Welcome to \n "VAPM" \n ID Card Builder APP</string>
+    <string name="enter_your_full_name_below">Enter Your Full Name Below :</string>
+</resources>

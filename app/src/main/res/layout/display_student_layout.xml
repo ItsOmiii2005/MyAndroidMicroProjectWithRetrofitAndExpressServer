@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="60dp"
+
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/innerLayout"
+            >
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewFullName"
+                android:textSize="30sp"
+                android:layout_margin="5dp"
+                android:background="@drawable/et_style"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewEnrollmentNo"
+                android:textSize="30sp"
+                android:layout_margin="5dp"
+                android:background="@drawable/et_style"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewClassName"
+                android:textSize="30sp"
+                android:layout_margin="5dp"
+                android:background="@drawable/et_style"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewDob"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/et_style"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewAddress"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/et_style"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewMobileNo"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/et_style"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/updateBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/update"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:onClick="onUpdateClicked" />
+
+                <!-- Delete Button -->
+                <ImageView
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/delete"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:onClick="onDeleteClicked" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateLayout"
+        android:visibility="gone"
+        android:layout_margin="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"/>
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/updateImg"
+                    android:background="@drawable/ic_add_foreground"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E"/>
+
+            <EditText
+                android:id="@+id/etEnrollmentNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Enrollment No"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E"/>
+
+            <EditText
+                android:id="@+id/etClassName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Class Name"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E"/>
+
+            <EditText
+                android:id="@+id/etDob"
+                android:layout_width="match_parent"
+                android:inputType="none"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:focusable="false"
+                android:hint="Date Of Birth"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E" />
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Address"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E"/>
+
+            <EditText
+                android:id="@+id/etMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:inputType="phone"
+                android:hint="Mobile No"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <!-- Save button -->
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Save"/>
+
+                <!-- Cancel button -->
+                <Button
+                    android:id="@+id/cancelBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="20dp"
+
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

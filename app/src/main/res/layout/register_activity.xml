@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:gravity="center">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="321dp"
+        android:layout_centerInParent="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:text="Register"
+                android:textSize="30sp" />
+        </TableRow>
+
+
+        <!-- Username Row -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Enter Username :"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextUsernameRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="New Username"
+                android:inputType="text" />
+        </TableRow>
+
+        <!-- Password Row -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Enter Password :"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextPasswordRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="New Password"
+                android:inputType="textPassword" />
+        </TableRow>
+
+        <!-- Login Button -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Now !!!"
+                android:textSize="20sp" />
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
