@@ -35,13 +35,16 @@
         </activity>
 
         <activity android:name=".idViewActivity"/>
-
-        <activity android:name=".FacultyLoginActivity"/>
-
         <activity android:name=".FindStudentActivity"/>
 
+        <activity android:name=".FacultyLoginActivity"/>
         <activity android:name=".RegisterActivity"/>
+
+
         <activity android:name=".DisplayStudentActivity"/>
+
+        <activity android:name=".StudentRegistrationActivity"/>
+        <activity android:name=".StudentLoginActivity"/>
 
 
 

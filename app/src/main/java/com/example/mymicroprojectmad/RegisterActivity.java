@@ -30,33 +30,34 @@ public class RegisterActivity extends AppCompatActivity {
         EditText editTextUsernameRegister = findViewById(R.id.editTextUsernameRegister);
         EditText editTextPasswordRegister = findViewById(R.id.editTextPasswordRegister);
         Button btnRegister = findViewById(R.id.btnRegister);
+        EditText editTextName = findViewById(R.id.editTextName);
 
         btnRegister.setOnClickListener(v -> {
             // Get username and password from EditText
             String username = editTextUsernameRegister.getText().toString();
             String password = editTextPasswordRegister.getText().toString();
+            String name = editTextName.getText().toString();
 
             if (!username.isEmpty() && !password.isEmpty()) {
                 // Call the login method
-                registerUser(username, password);
+                registerUser(username, password,name);
             } else {
                 // Show a toast indicating that username and password are required
                 Toast.makeText(this, "Username and password are required", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    private void registerUser(String username, String password) {
+    private void registerUser(String username, String password,String name) {
         // Call the login endpoint using Retrofit
-        loadingDialogUtil.showLoadingDialog("Registering new user...");
+        loadingDialogUtil.showLoadingDialog("Registering new Faculty...");
 AuthApiService apiService = new AuthApiService();
 
-        apiService.registerUser(username, password, new Callback<ResponseMessage>() {
+        apiService.registerUser(username, password, name, new Callback<ResponseMessage>() {
             @Override
             public void onResponse(@NonNull Call<ResponseMessage> call, @NonNull Response<ResponseMessage> response) {
                 if (response.isSuccessful()) {
-                    Intent intent = new Intent(RegisterActivity.this, FacultyLoginActivity.class);
-                    startActivity(intent);
-                    Toast.makeText(RegisterActivity.this, "Registration successful! \nPlease login to continue", Toast.LENGTH_SHORT).show();
+                    // Login successful
+                    Toast.makeText(RegisterActivity.this, "Registration successful! \nNew Faculty Added", Toast.LENGTH_SHORT).show();
                 } else {
                     // Login failed
                     Toast.makeText(RegisterActivity.this, "Something went wrong ", Toast.LENGTH_SHORT).show();

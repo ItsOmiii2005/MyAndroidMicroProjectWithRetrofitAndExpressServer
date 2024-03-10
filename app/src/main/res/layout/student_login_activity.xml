@@ -20,43 +20,26 @@
             >
 
             <TextView
-                android:text="Registration"
+                android:text="Student Login"
                 android:textSize="30sp"
                 android:textAlignment="center"
 
                 />
         </TableRow>
+
         <TableRow>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter Name :"
+                android:text="Enter Enrollment :"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextName"
-                android:layout_width="0dp"
+                android:id="@+id/editTextEnroll"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:hint="Your Name"
-                android:inputType="text" />
-        </TableRow>
-
-        <!-- Username Row -->
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enter Username :"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editTextUsernameRegister"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:hint="New Username"
+                android:hint="Enrollment No"
                 android:inputType="text" />
         </TableRow>
 
@@ -66,16 +49,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter Password :"
+                android:text="Select DOB :"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextPasswordRegister"
+                android:id="@+id/editTextDob"
                 android:layout_width="0dp"
+                android:inputType="none"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="New Password"
-                android:inputType="textPassword" />
+                android:focusable="false"
+                android:hint="Date Of Birth"
+               />
         </TableRow>
 
         <!-- Login Button -->
@@ -87,10 +72,10 @@
             >
 
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnstdLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register Now !!!"
+                android:text="Log Me In  !"
                 android:textSize="20sp" />
         </TableRow>
 

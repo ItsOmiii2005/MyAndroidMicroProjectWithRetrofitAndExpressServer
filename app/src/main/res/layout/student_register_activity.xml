@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Student Registration Form !"
+        android:textAlignment="center"
+
+        android:textColor="#D10CD8"
+        android:textSize="23sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/text4"
+                android:textStyle="bold|italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/enter_your_full_name_below"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et1"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="00dp"
+                android:background="@drawable/et_style"
+                android:hint="@string/e_g_omanand_prashant_swami"
+                android:textAlignment="center"
+                android:inputType="text"
+                android:textColorHint="#837E7E" />
+            <TextView
+                android:id="@+id/text6"
+                android:textStyle="bold|italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Enter Your Enrollment No :"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et3"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_style"
+                android:hint="e.g. 2110950050"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E" />
+            <TextView
+                android:id="@+id/text5"
+                android:textStyle="bold|italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Enter Your Class Name With Year Below :"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+
+            <EditText
+                android:id="@+id/et2"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_style"
+                android:hint="e.g. Computer Engg. -III Year"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E" />
+
+
+            <TextView
+                android:id="@+id/textD"
+                android:textStyle="bold|italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Select Your Date Of Birth :"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="280dp"
+                android:inputType="none"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_style"
+                android:focusable="false"
+                android:hint="e.g. 05-02-2005"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E" />
+
+
+            <TextView
+                android:id="@+id/text8"
+                android:textStyle="bold|italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Enter Your Address :"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et5"
+
+                android:layout_width="280dp"
+                android:inputType="text"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_style"
+                android:hint="e.g. Latur, Tq.Dist. Latur."
+                android:textAlignment="center"
+                android:textColorHint="#837E7E" />
+
+            <TextView
+                android:id="@+id/text9"
+                android:textStyle="bold|italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Enter Your Mobile No. :"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et6"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_style"
+                android:hint="e.g.9422308688"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColorHint="#837E7E" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_gravity="center"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"/>
+
+
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/upload"
+                android:layout_gravity="center"
+                android:id="@+id/btnPickImage"
+                android:layout_marginTop="10dp"
+
+                />
+
+            <Button
+                android:id="@+id/buttonNavigate"
+                android:layout_width="wrap_content"
+                android:layout_margin="20dp"
+                android:textSize="25sp"
+                android:text="Register Me !"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

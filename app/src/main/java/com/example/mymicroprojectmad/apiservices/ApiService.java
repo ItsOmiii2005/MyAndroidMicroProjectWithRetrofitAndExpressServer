@@ -1,5 +1,6 @@
 package com.example.mymicroprojectmad.apiservices;
 import com.example.mymicroprojectmad.auth.AuthToken;
+import com.example.mymicroprojectmad.auth.RegisterUser;
 import com.example.mymicroprojectmad.auth.ResponseMessage;
 import com.example.mymicroprojectmad.student.Student;
 import com.example.mymicroprojectmad.student.StudentResponse;
@@ -18,7 +19,7 @@ public interface ApiService {
 
 
     @POST("/register")
-    Call<ResponseMessage> register(@Body User user);
+    Call<ResponseMessage> register(@Body RegisterUser user);
 
     @POST("/login")
     Call<AuthToken> login(@Body User user);
@@ -36,4 +37,7 @@ public interface ApiService {
     Call<Void> deleteStudent(@Path("enrollmentNo") String enrollmentNo);
 @PUT("/updatestudent/{enrollmentNo}")
     Call<Void> updateStudent(@Path("enrollmentNo") String enrollmentNo, @Body Student studentToUpdate);
+
+@POST("/loginstd")
+    Call<AuthToken> loginStd(@Body User user);
 }

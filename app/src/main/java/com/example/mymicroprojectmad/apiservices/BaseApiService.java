@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class BaseApiService {
 
-    protected static final String BASE_URL = " https://vertical-pharmacies-wellington-excluded.trycloudflare.com/";
+    protected static final String BASE_URL = "https://androidmicroprojectserver.onrender.com/";
     protected final ApiService apiService;
 
     public BaseApiService() {

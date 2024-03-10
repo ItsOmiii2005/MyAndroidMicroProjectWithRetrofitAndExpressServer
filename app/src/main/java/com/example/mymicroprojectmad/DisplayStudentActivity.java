@@ -69,9 +69,11 @@ public class DisplayStudentActivity extends AppCompatActivity{
     ImageView deleteBtn, updateBtn,imageView10;
     byte[] imageByteArray;
     EditText etFullName, etClassName, etDob, etAddress, etMobileNo, etEnrollmentNo;
-    Button saveBtn, cancelBtn;
+    Button saveBtn, cancelBtn,gotoidview;
     String messageText;
     Intent intent;
+    StudentResponse student;
+
     StudentApiService studentApiService = new StudentApiService();
 
     @Override
@@ -80,7 +82,7 @@ public class DisplayStudentActivity extends AppCompatActivity{
         setContentView(R.layout.display_student_layout);
 
 
-
+        gotoidview = findViewById(R.id.gotoidview);
         textViewFullName = findViewById(R.id.textViewFullName);
         textViewClassName = findViewById(R.id.textViewClassName);
         textViewDob = findViewById(R.id.textViewDob);
@@ -112,27 +114,61 @@ public class DisplayStudentActivity extends AppCompatActivity{
 
         intent = getIntent();
         messageText = intent.getStringExtra("enrollmentNo");
+        assert messageText != null;
+        if (messageText.equals( AuthToken.getInstance(this).getEnroll()) || AuthToken.getInstance(this).getToken().startsWith("fac") ){
+            updateBtn.setOnClickListener(View -> {
+                if (messageText.equals("")) {
+                    Toast.makeText(DisplayStudentActivity.this, "Fetch data first", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                showUpdateLayout();
+
+            });
+            deleteBtn.setOnClickListener(View -> {
+                if (messageText.equals("")) {
+                    Toast.makeText(DisplayStudentActivity.this, "Fetch data first", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                deleteStudent(messageText);
+            });
+
+            updateImg.setOnClickListener(View -> {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setDataAndType(  MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
+                startActivityForResult(intent, 1);
+            });
+
+        }else {
+            updateBtn.setVisibility(View.GONE);
+            deleteBtn.setVisibility(View.GONE);
+            updateImg.setVisibility(View.GONE);
+
+        }
+
         getStudent(messageText);
 
-        updateBtn.setOnClickListener(View -> {
-            if (messageText.toString().equals("")) {
-                Toast.makeText(DisplayStudentActivity.this, "Fetch data first", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            showUpdateLayout();
 
+
+
+
+        gotoidview.setOnClickListener(View -> {
+            Intent intent = new Intent(DisplayStudentActivity.this, idViewActivity.class);
+
+            // Pass data to SecondActivity using intent extras
+            intent.putExtra("fullName", student.getFullName());
+            intent.putExtra("className", student.getClassName());
+            intent.putExtra("enrollmentNo", messageText);
+            intent.putExtra("dob", student.getDob());
+            intent.putExtra("address", student.getAddress());
+            intent.putExtra("mobileNo", student.getMobileNo());
+            intent.putExtra("image", student.getImage());  // Pass the image byte array
+            startActivity(intent);
         });
         cancelBtn.setOnClickListener(View -> {
             showDetailsLayout();
         });
 
-        deleteBtn.setOnClickListener(View -> {
-            if (messageText.toString().equals("")) {
-                Toast.makeText(DisplayStudentActivity.this, "Fetch data first", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            deleteStudent(messageText.toString());
-        });
+
 
 
         // perform click event on edit text
@@ -165,11 +201,7 @@ public class DisplayStudentActivity extends AppCompatActivity{
             saveStudent();
         });
 
-        updateImg.setOnClickListener(View -> {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.setDataAndType(  MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
-            startActivityForResult(intent, 1);
-        });
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -265,7 +297,8 @@ public class DisplayStudentActivity extends AppCompatActivity{
             @Override
             public void onResponse(@NonNull Call<StudentResponse> call, @NonNull Response<StudentResponse> response) {
                 if (response.isSuccessful()) {
-                    StudentResponse student = response.body();
+                    gotoidview.setVisibility(View.VISIBLE);
+                     student = response.body();
                     if (student != null) {
 
 
@@ -340,6 +373,10 @@ public class DisplayStudentActivity extends AppCompatActivity{
                                 if (response.isSuccessful()) {
                                     if (response.code() == 200) {
                                         // Deletion successful
+                                        AuthToken.getInstance(DisplayStudentActivity.this).logout();
+                                        finish();
+                                        Intent intent = new Intent(DisplayStudentActivity.this, MainActivity.class);
+                                        startActivity(intent);
                                         Toast.makeText(DisplayStudentActivity.this, "Student deleted successfully", Toast.LENGTH_SHORT).show();
                                        finish();
                                     }
@@ -435,30 +472,38 @@ public class DisplayStudentActivity extends AppCompatActivity{
                         // Update the TextViews with the new values if the fields have changed
                         if (studentToUpdate.getFullName() != null) {
                             textViewFullName.setText("Full Name: " + studentToUpdate.getFullName());
+                            student.setFullName(studentToUpdate.getFullName());
                         }
 
                         if (studentToUpdate.getClassName() != null) {
                             textViewClassName.setText("Class Name: " + studentToUpdate.getClassName());
+                            student.setClassName(studentToUpdate.getClassName());
                         }
 
                         if (studentToUpdate.getDob() != null) {
                             textViewDob.setText("Date of Birth: " + studentToUpdate.getDob());
+                            student.setDob(studentToUpdate.getDob());
                         }
 
                         if (studentToUpdate.getAddress() != null) {
                             textViewAddress.setText("Address: " + studentToUpdate.getAddress());
+                            student.setAddress(studentToUpdate.getAddress());
                         }
 
                         if (studentToUpdate.getMobileNo() != null) {
                             textViewMobileNo.setText("Mobile No: " + studentToUpdate.getMobileNo());
+                            student.setMobileNo(studentToUpdate.getMobileNo());
                         }
 
                         if (studentToUpdate.getImage() != null) {
                             // Update the image only if it has changed
+
+                            student.setImage(studentToUpdate.getImage());
                             imageViewimg.setImageBitmap(BitmapFactory.decodeByteArray(newImageByteArray, 0, newImageByteArray.length));
                         }
                         if (studentToUpdate.getEnrollmentNo() != null) {
                             textViewEnrollmentNo.setText("Enrollment No: " + studentToUpdate.getEnrollmentNo());
+                            messageText =studentToUpdate.getEnrollmentNo();
                         }
 
                         // Switch back to the details layout

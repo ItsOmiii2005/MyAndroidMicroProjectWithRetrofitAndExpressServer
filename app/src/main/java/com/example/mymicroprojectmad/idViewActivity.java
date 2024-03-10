@@ -70,16 +70,18 @@ public class idViewActivity extends AppCompatActivity {
         ImageView qrCodeImageView = findViewById(R.id.qrCodeImageView);
         Bitmap qrCodeBitmap = generateQRCode(enrollmentNo);
         qrCodeImageView.setImageBitmap(qrCodeBitmap);
-        LinearLayout qrCodeLinearLayout = findViewById(R.id.idplusqr);
+        LinearLayout qrCodeLinearLayout = findViewById(R.id.idCard);
 
         Button btnSaveImage = findViewById(R.id.btnSaveImage);
+        Button gotostdlogin = findViewById(R.id.gotostdlogin);
 
-        btnSaveImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Call the method to save the view as an image
-                saveViewAsImage(qrCodeLinearLayout);
-            }
+        btnSaveImage.setOnClickListener(v -> {
+            // Call the method to save the view as an image
+            saveViewAsImage(qrCodeLinearLayout);
+        });
+        gotostdlogin.setOnClickListener(v -> {
+            Intent in = new Intent(idViewActivity.this, StudentLoginActivity.class);
+            startActivity(in);
         });
     }
 

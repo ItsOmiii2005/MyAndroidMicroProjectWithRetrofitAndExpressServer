@@ -57,7 +57,7 @@ public class FacultyLoginActivity extends AppCompatActivity {
         loadingDialogUtil.showLoadingDialog("Logging in...");
         super.onResume();
         // Check if the token is already available and valid
-        if (AuthToken.getInstance(this).isTokenAvailable() && AuthToken.getInstance(this).isTokenValid()) {
+        if (AuthToken.getInstance(this).isTokenAvailable()) {
             // Token is available and valid, redirect to FindStudentActivity
             redirectToFindStudentActivity();
 
@@ -74,9 +74,9 @@ public class FacultyLoginActivity extends AppCompatActivity {
         loadingDialogUtil.showLoadingDialog("Logging in...");
 
         // Call the login endpoint using Retrofit
-AuthApiService authApiService = new AuthApiService();
+            AuthApiService authApiService = new AuthApiService();
 
-authApiService.loginUser(username, password, new Callback<AuthToken>() {
+            authApiService.loginUser(username, password, new Callback<AuthToken>() {
             @Override
             public void onResponse(@NonNull Call<AuthToken> call, @NonNull Response<AuthToken> response) {
                 if (response.isSuccessful()) {

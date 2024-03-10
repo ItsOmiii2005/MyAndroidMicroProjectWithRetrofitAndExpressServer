@@ -5,7 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
    >
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="ID Card View --->>"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp"
+    android:id="@+id/gotoidview"
+    android:visibility="gone"
+    />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -143,7 +151,8 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:id="@+id/updateImg"
-                    android:background="@drawable/ic_add_foreground"/>
+                    android:background="@drawable/ic_add_foreground"
+                    android:contentDescription="add image" />
             </LinearLayout>
 
             <EditText

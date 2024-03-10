@@ -24,10 +24,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class FindStudentActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button scanBtn, fetchBtn,logout;
-
-
-    TextView messageText, messageFormat;
+    Button scanBtn, fetchBtn,logout,addfac,myinfo;
+    TextView messageText, messageFormat,name;
 
 
     EditText editTextEnrollmentNo;
@@ -37,7 +35,39 @@ public class FindStudentActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_scanner);
+
+        // Retrieve data from intent extras
+        addfac = findViewById(R.id.addfac);
+        name = findViewById(R.id.name);
+        name.setText("Hello "+ AuthToken.getInstance(this).getName());
+
+        myinfo = findViewById(R.id.myinfo);
         AuthToken authToken = AuthToken.getInstance(this);
+String token = authToken.getToken();
+String isFac =token.substring(0,3);
+if(isFac.equals("fac"))
+{
+    addfac.setVisibility(View.VISIBLE);
+    myinfo.setVisibility(View.GONE);
+    addfac.setOnClickListener(v->{
+
+
+     Intent intent = new Intent(FindStudentActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    });
+
+}
+else
+{
+    addfac.setVisibility(View.GONE);
+    myinfo.setVisibility(View.VISIBLE);
+    myinfo.setOnClickListener(v->{
+     String enroll =   authToken.getEnroll();
+        Intent intent = new Intent(FindStudentActivity.this, DisplayStudentActivity.class);
+        intent.putExtra("enrollmentNo", enroll);
+        startActivity(intent);
+    });
+}
 
         // referencing and initializing
         // the button and textviews
@@ -50,6 +80,7 @@ public class FindStudentActivity extends AppCompatActivity implements View.OnCli
         fetchBtn = findViewById(R.id.fetchdatabtn);
         editTextEnrollmentNo = findViewById(R.id.editTextEnrollmentNo);
         logout = findViewById(R.id.logoutBtn);
+
 
 
 

@@ -3,6 +3,7 @@ package com.example.mymicroprojectmad.auth;
 public class ResponseMessage {
     private String message;
 
+
     public String getMessage() {
         return message;
     }

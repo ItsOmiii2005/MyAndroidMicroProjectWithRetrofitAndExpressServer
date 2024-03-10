@@ -26,6 +26,15 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:id="@+id/name"
+        android:visibility="gone"
+        />
 
     <Button
         android:id="@+id/scanBtn"
@@ -61,14 +70,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
+
         android:text="Fetch Data"
         android:id="@+id/fetchdatabtn"/>
+
+    <TextView
+        android:id="@+id/or1"
+        android:text="OR"
+        android:textSize="25dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+
+        android:text="My Info -->>"
+        android:id="@+id/myinfo"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:text="Register New Faculty"
+        android:id="@+id/addfac"/>
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Logout"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#FF0000"
         android:id="@+id/logoutBtn"/>
 
